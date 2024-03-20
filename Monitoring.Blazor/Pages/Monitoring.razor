@@ -1,0 +1,103 @@
+﻿@page "/m"
+@using global::Monitoring.Blazor.Models;
+@using MonitoringApp.Blazor
+
+<PageTitle>Мониторинг пользователей</PageTitle>
+@inject HttpClient Http
+
+@if (users == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3> Пользователи получены с API </h3>
+}
+
+
+<style>
+    .user-circle {
+        width: 20px; /* Размер кружка */
+        height: 20px; /* Размер кружка */
+        background-color: green; /* Цвет кружка */
+        border-radius: 50%; /* Сделать круглым */
+    }
+
+    .employee-circle {
+        width: 20px; /* Размер кружка */
+        height: 20px; /* Размер кружка */
+        background-color: blue; /* Цвет кружка */
+        border-radius: 50%; /* Сделать круглым */
+    }
+
+</style>
+
+
+    <div class="container m-3 p-3 border border-3 border-warning" id="1">
+    <h3> Контейнер 1</h3>
+        
+         <!-- Проверка внутри контейнера 1 -->
+         @foreach (var u in users)
+         {
+                @if(u.LastSecurityPointNumber == 1 && u.LastSecurityPointDirection == "in")
+                {
+                    <div class="container m-3 p-3 border border-3 border-primary" id="1">
+                        <h3> Код пользователя: @u.PersonCode</h3>
+
+                    @if(u.PersonRole == "user")
+                    {
+                        <div class="user-circle"> </div>
+                    }
+                    else
+                    {
+                        <div class="employee-circle"> </div>
+                    }
+
+                    </div>
+                }
+         }
+    </div>
+
+
+    <div class="container m-3 p-3 border border-3 border-warning" id="2">
+    <h3> Контейнер 2</h3>
+
+    <!-- Проверка внутри контейнера 1 -->
+    @foreach (var u in users)
+    {
+        @if (u.LastSecurityPointNumber == 2 && u.LastSecurityPointDirection == "in")
+        {
+            <div class="container m-3 p-3 border border-3 border-primary" id="2">
+                <h3> Контейнер 1</h3>
+
+                <div class="user-circle">
+                </div>
+
+            </div>
+        }
+    }
+</div>
+
+
+
+@code {
+    private IEnumerable<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var timer = new PeriodicTimer(TimeSpan.FromSeconds(3));
+
+        while (await timer.WaitForNextTickAsync())
+        {
+            await GetUsers();
+            await Console.Out.WriteLineAsync("Запрос");
+        }
+    }
+
+    private async Task GetUsers()
+    {
+        users = await Http.GetFromJsonAsync<IEnumerable<User>>("https://localhost:7214/api/users");
+        StateHasChanged();
+    }
+
+}
