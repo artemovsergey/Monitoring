@@ -1,4 +1,6 @@
 ﻿@page "/m"
+@page "/"
+
 @using global::Monitoring.Blazor.Models;
 @using MonitoringApp.Blazor
 
@@ -30,21 +32,32 @@ else
         border-radius: 50%; /* Сделать круглым */
     }
 
+    .skud {
+        background-color: #4679BD; /* Blue background */
+        width: 200px; /* Example width */
+        height: 200px; /* Example height */
+        display: flex; /* Use flexbox for layout */
+        flex-wrap: wrap; /* Allow wrapping of items */
+        justify-content: space-around; /* Space items evenly */
+        align-items: center; /* Center items vertically */
+        padding: 20px; /* Add some padding inside the room */
+    }
+
 </style>
 
+<div class="container">
+    <div class="row">
+      
+        <div class="col-2 skud m-3 p-3 border border-3 border-warning" id="1">
 
-    <div class="container m-3 p-3 border border-3 border-warning" id="1">
-    <h3> Контейнер 1</h3>
-        
-         <!-- Проверка внутри контейнера 1 -->
-         @foreach (var u in users)
-         {
-                @if(u.LastSecurityPointNumber == 1 && u.LastSecurityPointDirection == "in")
+            <!-- Проверка внутри контейнера 1 -->
+            @foreach (var u in users)
+            {
+                @if (u.LastSecurityPointNumber == 1 && u.LastSecurityPointDirection == "in")
                 {
-                    <div class="container m-3 p-3 border border-3 border-primary" id="1">
-                        <h3> Код пользователя: @u.PersonCode</h3>
 
-                    @if(u.PersonRole == "user")
+
+                    @if (u.PersonRole == "user")
                     {
                         <div class="user-circle"> </div>
                     }
@@ -53,30 +66,111 @@ else
                         <div class="employee-circle"> </div>
                     }
 
-                    </div>
                 }
-         }
-    </div>
+            }
+        </div>
 
 
-    <div class="container m-3 p-3 border border-3 border-warning" id="2">
-    <h3> Контейнер 2</h3>
 
-    <!-- Проверка внутри контейнера 1 -->
-    @foreach (var u in users)
-    {
-        @if (u.LastSecurityPointNumber == 2 && u.LastSecurityPointDirection == "in")
-        {
-            <div class="container m-3 p-3 border border-3 border-primary" id="2">
-                <h3> Контейнер 1</h3>
+      
+        <div class="skud col-md-2 m-3 p-3 border border-3 border-warning" id="1">
 
-                <div class="user-circle">
-                </div>
+            <!-- Проверка внутри контейнера 1 -->
+            @foreach (var u in users)
+            {
+                @if (u.LastSecurityPointNumber == 2 && u.LastSecurityPointDirection == "in")
+                {
 
-            </div>
-        }
-    }
+
+                    @if (u.PersonRole == "user")
+                    {
+                        <div class="user-circle"> </div>
+                    }
+                    else
+                    {
+                        <div class="employee-circle"> </div>
+                    }
+
+                }
+            }
+        </div>
+
+
+    
+        <div class="skud col-md-2 m-3 p-3 border border-3 border-warning" id="1">
+
+            <!-- Проверка внутри контейнера 1 -->
+            @foreach (var u in users)
+            {
+                @if (u.LastSecurityPointNumber == 3 && u.LastSecurityPointDirection == "in")
+                {
+
+
+                    @if (u.PersonRole == "user")
+                    {
+                        <div class="user-circle"> </div>
+                    }
+                    else
+                    {
+                        <div class="employee-circle"> </div>
+                    }
+
+                }
+            }
+        </div>
+
+
+       
+        <div class="skud col-md-2 m-3 p-3 border border-3 border-warning" id="1">
+
+            <!-- Проверка внутри контейнера 1 -->
+            @foreach (var u in users)
+            {
+                @if (u.LastSecurityPointNumber == 4 && u.LastSecurityPointDirection == "in")
+                {
+
+
+                    @if (u.PersonRole == "user")
+                    {
+                        <div class="user-circle"> </div>
+                    }
+                    else
+                    {
+                        <div class="employee-circle"> </div>
+                    }
+
+                }
+            }
+        </div>
+
+     
+        <div class="skud col-md-2 m-3 p-3 border border-3 border-warning" id="1">
+
+            <!-- Проверка внутри контейнера 1 -->
+            @foreach (var u in users)
+            {
+                @if (u.LastSecurityPointNumber == 5 && u.LastSecurityPointDirection == "in")
+                {
+
+
+                    @if (u.PersonRole == "user")
+                    {
+                        <div class="user-circle"> </div>
+                    }
+                    else
+                    {
+                        <div class="employee-circle"> </div>
+                    }
+
+                }
+            }
+        </div>
+   </div>
 </div>
+
+
+
+ 
 
 
 

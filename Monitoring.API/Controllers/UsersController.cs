@@ -25,7 +25,7 @@ public class UsersController : ControllerBase
 			new User(){ Id = 1,
 						LastSecurityPointDirection = "in",
 						PersonRole = "user",
-						LastSecurityPointNumber = new Random().Next(1, 4),
+						LastSecurityPointNumber = new Random().Next(1, 5),
                         LastSecurityPointTime = DateTime.Now,
 						PersonCode = "1"
 			},
@@ -33,7 +33,7 @@ public class UsersController : ControllerBase
             new User(){ Id = 2,
 						LastSecurityPointDirection = "in",
                         PersonRole = "employee",
-                        LastSecurityPointNumber = new Random().Next(1, 4),
+                        LastSecurityPointNumber = new Random().Next(1, 5),
 						LastSecurityPointTime = DateTime.Now,
 						PersonCode = "1"
             },
@@ -41,7 +41,36 @@ public class UsersController : ControllerBase
             new User(){ Id = 3,
                         LastSecurityPointDirection = "in",
                         PersonRole = "employee",
-                        LastSecurityPointNumber = new Random().Next(1, 4),
+                        LastSecurityPointNumber = new Random().Next(1, 5),
+                        LastSecurityPointTime = DateTime.Now,
+                        PersonCode = "1"
+            },
+
+                        new User(){ Id = 4,
+                        LastSecurityPointDirection = "in",
+                        PersonRole = "employee",
+                        LastSecurityPointNumber = new Random().Next(1, 5),
+                        LastSecurityPointTime = DateTime.Now,
+                        PersonCode = "1"
+            },
+                                    new User(){ Id = 5,
+                        LastSecurityPointDirection = "in",
+                        PersonRole = "employee",
+                        LastSecurityPointNumber = new Random().Next(1, 5),
+                        LastSecurityPointTime = DateTime.Now,
+                        PersonCode = "1"
+            },
+                                                new User(){ Id = 6,
+                        LastSecurityPointDirection = "in",
+                        PersonRole = "employee",
+                        LastSecurityPointNumber = new Random().Next(1, 3),
+                        LastSecurityPointTime = DateTime.Now,
+                        PersonCode = "1"
+            },
+                                                            new User(){ Id = 7,
+                        LastSecurityPointDirection = "in",
+                        PersonRole = "employee",
+                        LastSecurityPointNumber = new Random().Next(1, 3),
                         LastSecurityPointTime = DateTime.Now,
                         PersonCode = "1"
             }
